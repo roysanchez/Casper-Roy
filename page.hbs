@@ -9,6 +9,15 @@ into the {body} of the default.hbs template --}}
     </div>
 </header>
 
+{{#contentFor "styles"}}
+<style>
+    .site-header-content{
+        display: none;
+    }
+</style>
+{{/contentFor}}
+
+
 {{!-- Everything inside the #post tags pulls data from the post --}}
 {{#post}}
 

@@ -1,9 +1,12 @@
 /* Variables
 /* ---------------------------------------------------------- */
 
+@import "variables.css";
+
 :root {
     /* Colours */
     --blue: #3eb0ef;
+    --darkblue: #215b7d;
     --green: #a4d037;
     --purple: #ad26b4;
     --yellow: #fecd35;

@@ -11,6 +11,13 @@
             {{navigation}}
         {{/if}}
     </div>
+    <div class="site-header-content">
+        <h1 class="site-title">
+            {{#if @blog.logo}}
+            <img class="site-logo" src="{{@blog.logo}}" alt="{{@blog.title}}" /> {{else}} {{@blog.title}} {{/if}}
+        </h1>
+        <h2 class="site-description">{{@blog.description}}</h2>
+    </div>
     <div class="site-nav-right">
         <div class="social-links">
             {{#if @site.facebook}}
