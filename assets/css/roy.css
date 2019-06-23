@@ -215,3 +215,7 @@
 .post-full-authors {
     border-top: color(var(--whitegrey) l(+10%)) 1px solid;
 }
+
+.kg-gallery-image {
+    cursor: pointer;
+}
