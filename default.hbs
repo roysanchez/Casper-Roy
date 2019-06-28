@@ -11,6 +11,9 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.12/css/lightgallery.min.css"
+        integrity="sha256-8rfHbJr+ju3Oc099jFJMR1xAPu8CTPHU8uP5J3X/VAY=" crossorigin="anonymous" />
+    
     {{!-- Styles'n'Scripts --}}
     <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
     <link rel="stylesheet" type="text/css" href="{{asset "built/roy.css"}}" />
@@ -79,7 +82,8 @@
     <script src="{{asset "built/infinitescroll.js"}}"></script>
     {{/if}}
 
-    <script src="https://unpkg.com/lightgallery.js/dist/js/lightgallery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.6.12/js/lightgallery.min.js"
+        integrity="sha256-GnThhVDusd6Mnhplk3lS6eX/C+Q9jaSR6KctYP8OlAo=" crossorigin="anonymous"></script>
     <script>
         const galleryContainers = document.querySelectorAll('.kg-gallery-container');
         if (galleryContainers.length) {
@@ -87,9 +91,14 @@
                 item.querySelectorAll('.kg-gallery-image').forEach(sub => {
                     sub.dataset.src = sub.children[0].src
                 });
-                window.lightGallery(item, { selector: '.kg-gallery-image' });
+                jQuery(item).lightGallery({ selector: '.kg-gallery-image' });
             });
         }
+
+        $(".kg-image").wrap("<div class='kg-image-wrapper'></div>").each((index, element) => {
+            element.parentElement.dataset.src = element.src;
+        });
+        $(".kg-image-card").lightGallery({selector: '.kg-image-wrapper'});
     </script>
 
     {{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}

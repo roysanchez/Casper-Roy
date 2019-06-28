@@ -216,6 +216,6 @@
     border-top: color(var(--whitegrey) l(+10%)) 1px solid;
 }
 
-.kg-gallery-image {
+.kg-image-wrapper, .kg-gallery-image {
     cursor: pointer;
 }
