@@ -37,6 +37,5 @@ steps:
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    TargetPath: 'dist/$(json.name).zip'
     ArtifactName: '$(json.name)-$(json.version)'
-    publishLocation: 'FilePath'
+    publishLocation: 'Container'
