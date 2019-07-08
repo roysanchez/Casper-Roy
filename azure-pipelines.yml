@@ -21,7 +21,7 @@ steps:
 - task: Gulp@1
   inputs:
     gulpFile: 'gulpfile.js'
-    targets: 'build'
+    targets: 'zip'
     enableCodeCoverage: false
 
 - script: ls
