@@ -24,9 +24,12 @@ steps:
     targets: 'build'
     enableCodeCoverage: false
 
+- script: list files
+  displayName: 'ls'
+
 - task: CopyFiles@2
   inputs:
-    contents: 'dist/**'
+    contents: './dist/**'
     targetFolder: $(Build.ArtifactStagingDirectory)
 
 - task: PublishBuildArtifacts@1
