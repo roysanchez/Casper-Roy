@@ -32,8 +32,13 @@ steps:
     contents: 'dist/**'
     targetFolder: $(Build.ArtifactStagingDirectory)
 
+- task: oneLuckiDevJson2Variable@1
+  inputs:
+    jsonFile: '$(Build.SourcesDirectory)\package.json'
+    shouldPrefixVariables: true
+
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'drop'
+    ArtifactName: '$(json.name) - $(json.version)'
     publishLocation: 'Container'
