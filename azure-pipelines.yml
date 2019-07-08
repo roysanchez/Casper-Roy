@@ -24,9 +24,6 @@ steps:
     targets: 'zip'
     enableCodeCoverage: false
 
-- script: ls
-  displayName: 'ls'
-
 - task: CopyFiles@2
   inputs:
     contents: 'dist/**'
@@ -39,6 +36,6 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)\$(json.name)'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(json.name).zip'
     ArtifactName: '$(json.name)-$(json.version)'
     publishLocation: 'FilePath'
