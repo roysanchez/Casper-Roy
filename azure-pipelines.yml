@@ -24,7 +24,7 @@ steps:
     targets: 'zip'
     enableCodeCoverage: false
 
-- script: ls ./dist
+- script: ls
   displayName: 'ls'
 
 - task: CopyFiles@2
@@ -34,7 +34,7 @@ steps:
 
 - task: oneLuckiDevJson2Variable@1
   inputs:
-    jsonFile: '$(Build.SourcesDirectory)\package.json'
+    jsonFile: 'package.json'
     shouldPrefixVariables: true
 
 - task: PublishBuildArtifacts@1
