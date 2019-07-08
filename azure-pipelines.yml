@@ -15,12 +15,11 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-- task: Gulp@1
-  targets:
-    
-
 - script: yarn install
   displayName: 'yarn install'
 
-- script: gulp build
-  displayName: 'builds the project'
+- task: Gulp@1
+  inputs:
+    gulpFile: 'gulpfile.js'
+    targets: 'build'
+    enableCodeCoverage: false
