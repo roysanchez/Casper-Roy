@@ -24,7 +24,7 @@ steps:
     targets: 'build'
     enableCodeCoverage: false
 
-- script: list files
+- script: ls
   displayName: 'ls'
 
 - task: CopyFiles@2
