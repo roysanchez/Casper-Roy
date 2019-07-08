@@ -21,5 +21,21 @@ steps:
 - task: Gulp@1
   inputs:
     gulpFile: 'gulpfile.js'
-    targets: 'build'
+    targets: 'zip'
     enableCodeCoverage: false
+
+- task: CopyFiles@2
+  inputs:
+    contents: 'dist/**'
+    targetFolder: $(Build.ArtifactStagingDirectory)
+
+- task: oneLuckiDevJson2Variable@1
+  inputs:
+    jsonFile: 'package.json'
+    shouldPrefixVariables: true
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: '$(json.name)-$(json.version)'
+    publishLocation: 'Container'
