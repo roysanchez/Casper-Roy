@@ -24,12 +24,12 @@ steps:
     targets: 'zip'
     enableCodeCoverage: false
 
-- script: ls
+- script: ls ./dist
   displayName: 'ls'
 
 - task: CopyFiles@2
   inputs:
-    contents: './dist/**'
+    contents: 'dist/**'
     targetFolder: $(Build.ArtifactStagingDirectory)
 
 - task: PublishBuildArtifacts@1
